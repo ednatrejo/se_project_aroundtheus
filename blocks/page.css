@@ -14,3 +14,11 @@
   max-width: 100%;
   position: relative;
   }
+
+  @media screen and (max-width: 768px) {
+    .page__content {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  
