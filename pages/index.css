@@ -8,24 +8,3 @@
 
 
 
-@media screen and (max-width:480px) {
-    .profile {
-        background-color: red;
-        flex-direction: column;
-    }
-    .profile__info {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
-    .profile__desctription {
-        width: 100%;
-        text-align: center;
-    }
-    .profile__ad-button {
-        margin: 0;
-        width: 100%;
-    }
-
-}
