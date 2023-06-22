@@ -6,6 +6,7 @@
 
 .profile__info {
   display: grid;
+  column-gap: 24px;
   grid-template-areas:
   "title button"
   "description description";

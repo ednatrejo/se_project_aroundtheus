@@ -7,7 +7,7 @@
  display: flex;
  flex-direction: column;
  min-height: 100vh;
- max-width: 1280px;
+ max-width: 880px;
  margin: 0 auto;
 }
 .page__section {
