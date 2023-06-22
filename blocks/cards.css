@@ -1,6 +1,12 @@
 .cards {
   /* fonts */
   margin-top: 51px;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 29px;
+  margin-top: 30px;
+  margin: 0 auto;
+  max-width: 880px;
+
 
 }
 .cards__list {
@@ -10,22 +16,6 @@
   grid-gap: 20px 17px;
   padding: 0;
   margin: 0;
+
 }
 
-@media screen and (min-width: 1280px) {
-  .cards__list {
-    grid-template-columns: repeat(3, 282px);
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .cards__list {
-    grid-template-columns: repeat(2, 282px);
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .cards__list {
-    grid-template-columns: repeat(1, 282px);
-  }
-}
