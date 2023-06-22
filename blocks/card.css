@@ -4,6 +4,8 @@
 display: flex;
 flex-direction: column;
 list-style: none;
+overflow: hidden;
+border-radius: 10px;
 
 }
 
