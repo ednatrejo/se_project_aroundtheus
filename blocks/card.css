@@ -1,48 +1,53 @@
 
-
 .card {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   list-style: none;
   border-radius: 10px;
-}
 
-.card__image {
-  height: 282px;
+  }
+
+  .card__image {
   width: 282px;
+  height: 282px;
   border-radius: 10px 10px 0 0;
-}
+  }
 
-.card__image-title {
-  font-family: "Inter", Arial, sans-serif;
-  line-height: 29px;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: wrap;
-  max-width: 200px;
-}
+  .card__description {
+    display: flex;
+    background-color: white;
+    color: black;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .card__image-title {
+    font-family: "Inter", Arial, sans-serif;
+    line-height: 29px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    margin: 0;
+    max-width: 200px;
+  }
 
-.card__description {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 20px 25px 25px;
-  background-color: #f2f2f2;
-  color: black;
-}
-.card__like-button {
-
-background: transparent url(../images/heart-disable.svg) center no-repeat;
-width: 21px;
-height: 18px;
-border: none;
-border-radius: 0 0 10px 10px;
-  border: none;
-  transition: 1s;
-
-}
+  .card__like-button {
+    background: transparent url(../images/heart-disable.svg) center no-repeat;
+    width: 21px;
+    height: 18px;
+    border: none;
+  }
+  .card__list {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 282px);
+    grid-gap: 20px 17px;
+    padding: 0;
+    margin: 0;
+  }

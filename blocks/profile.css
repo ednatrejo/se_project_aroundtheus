@@ -10,10 +10,12 @@
 .profile__info {
   display: grid;
   column-gap: 24px;
+  align-items: center;
   grid-template-areas:
   "title button"
   "description description";
   grid-template-columns: minmax(auto, 373px) auto;
+  font-size: 18px;
 }
 .profile__edit-button {
   background: transparent url(../images/edit.svg) center no-repeat;
