@@ -22,16 +22,27 @@
   height: 24px;
   width: 24px;
   grid-area: button;
+  align-self: center;
+  border: 1px solid #ffffff;
+  margin-left: 18px;
 }
 .profile__add-button {
   background: transparent url(../images/add-button.png) center no-repeat;
   width: 150px;
   height: 50px;
   margin-left: auto;
+  margin-left: auto;
   border: 2px solid #ffffff;
   border-radius: 2px;
 }
-.profile__title {
+
+.profile__add-button:hover {
+  transition: 0.1s;
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.pofile__title {
   font-size: 42px;
   line-height: 48px;
   font-weight: 500;
@@ -43,7 +54,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.profile__desctription {
+.profile__description {
   font-size: 18px;
     line-height: 22px;
  font-weight: 400;
@@ -57,7 +68,7 @@ margin: 0;
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
   background-position: center;
   margin-right: 24px;
 }

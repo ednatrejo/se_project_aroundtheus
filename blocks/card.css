@@ -32,9 +32,6 @@
     padding-right: 20px;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
   .card__image-title {
     font-family: "Inter", Arial, sans-serif;
@@ -52,14 +49,7 @@
     height: 18px;
     border: none;
   }
-  .card__list {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, 282px);
-    grid-gap: 20px 17px;
-    padding: 0;
-    margin: 0;
-  }
+  
   .card__like-button:hover {
     opacity: 50%;
     transition: 0.1s;

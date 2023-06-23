@@ -1,7 +1,9 @@
 
 .header {
   margin-top: 45px;
-  border-bottom:white solid;
+margin: auto;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  grid-template-columns: repeat(auto-fit, 282px);
 }
 
 .header__logo {
