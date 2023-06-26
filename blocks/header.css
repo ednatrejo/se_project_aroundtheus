@@ -1,25 +1,27 @@
-
 .header {
-  margin-top: 45px;
-margin: auto;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
-  grid-template-columns: repeat(auto-fit, 282px);
+  color: white;
+  padding-top: 45px;
+  max-width: 880px;
+  min-height: 33px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .header__logo {
   margin-bottom: 41px;
-  max-width: 173px;
-  height: 33px;
-  padding-bottom: 41px;
-  margin-top: 45px;
 }
 
-@media screen and (max-width: 480px) {
-
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .header {
+    margin: 0;
+    height: 100%;
+    padding-top: 28px;
+  }
   .header__logo {
-    width: 126px;
+    max-width: 126px;
     height: 24px;
-    margin-left: 27px;
     margin-bottom: 32px;
+    padding-left: 27px;
   }
 }
