@@ -1,13 +1,18 @@
 .cards {
-  /* fonts */
-  margin-top: 51px;
-
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  margin-top: 30px;
+  margin: 0 auto;
+  max-width: 880px;
 }
+
 .cards__list {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
   grid-gap: 20px 17px;
+  margin: 0 auto;
   padding: 0;
-  margin: 0;
 }
