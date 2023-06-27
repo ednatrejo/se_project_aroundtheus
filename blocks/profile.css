@@ -16,8 +16,10 @@
   "description description";
   grid-template-columns: minmax(auto, 373px) auto;
   font-size: 18px;
+  margin-top: 30px;
 }
 .profile__edit-button {
+
   background: transparent url(../images/edit.svg) center no-repeat;
   height: 24px;
   width: 24px;
@@ -51,7 +53,7 @@
   line-height: 48px;
   font-weight: 500;
   grid-area: title;
-  margin: 0;
+  margin-top: 0;
   font-family: "Inter", Arial, sans-serif;
   width: 100%;
   overflow: hidden;
