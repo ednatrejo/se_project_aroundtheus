@@ -21,10 +21,9 @@
   background: transparent url(../images/edit.svg) center no-repeat;
   height: 24px;
   width: 24px;
-  grid-area: button;
-  align-self: center;
-  border: 1px solid #ffffff;
-  margin-left: 18px;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: 1s;
 }
 
 .profile__edit-button:hover {
@@ -35,8 +34,10 @@
   width: 150px;
   height: 50px;
   margin-left: auto;
-  border: 2px solid #ffffff;
+  border: 2px solid white;
   border-radius: 2px;
+  cursor: pointer;
+  transition: 1s;
 }
 
 .profile__add-button:hover {
@@ -71,9 +72,12 @@ margin: 0;
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  object-fit: cover;
   background-position: center;
   margin-right: 24px;
+    margin-right: 24px;
+    object-fit: contain;
+  }
+
 }
 
 
