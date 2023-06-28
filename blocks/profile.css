@@ -35,21 +35,13 @@
 }
 .profile__add-button {
   background: transparent url(../images/add.svg) center no-repeat;
-  padding: 14px 64px;
-  background-color: transparent;
-  box-sizing: border-box;
-  border-radius: 2px;
-  height: 50px;
   width: 150px;
-  border: #ffffff solid 2px;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 50px;
   margin-left: auto;
+  border: 2px solid white;
+  border-radius: 2px;
   cursor: pointer;
-  transition: opacity 0.2s linear;
-  background-position: center;
+  transition: 1s;
 }
 
 .profile__add-button:hover {
