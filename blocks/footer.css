@@ -1,5 +1,5 @@
 .footer {
-  color: #545454; 
+  color: #545454;
 }
 .footer__content {
   font-family: "Inter", Arial, sans-serif;
@@ -20,14 +20,13 @@
   .footer {
     font-size: 14px;
     line-height: 17px;
-    margin: 48px 19px 36px 19px;
+    margin: 0px 19px 36px 19px;
     max-width: 320px;
   }
 
   .footer__content {
     font-size: 14px;
 line-height: 14px;
-margin-top: 48px;
 margin-bottom: 36px;
   }
 }
