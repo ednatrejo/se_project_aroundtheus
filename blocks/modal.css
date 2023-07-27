@@ -1,0 +1,38 @@
+.modal {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  bottom:0;
+  right: 0;
+  background-color: rbga(0, 0, 0, .5);
+  z-index: 999;
+display:flex;
+  padding: 0 19px;
+
+
+}
+
+.modal__container {
+  background-color: black;
+  margin: auto;
+  padding: 36px;
+  border-radius: 10px;
+  position: relative;
+
+}
+
+.modal__close {
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/close.icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+
+}
