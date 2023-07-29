@@ -13,6 +13,7 @@
 }
 .modal__opened {
   display:flex;
+  pointer-events: all;
 }
 
 .modal__container {
@@ -21,6 +22,7 @@
   padding: 36px;
   border-radius: 10px;
   position: relative;
+  flex-direction: column;
 
 }
 
@@ -37,4 +39,8 @@
   bottom: calc(100% + 5px);
   left: calc(100% + 5px);
 
+}
+
+.modal__close:hover {
+  opacity: 0.5;
 }
