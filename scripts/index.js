@@ -26,7 +26,6 @@ const initialCards = [
 ];
 
 
-
 /* --------------------------------------------------------------------------------*/
 /*                              Elements                                          */
 /* --------------------------------------------------------------------------------*/
@@ -51,7 +50,7 @@ function closePopup() {
   profileEditModal.classList.remove("modal__opened");
 }
 
-function getCardElment(cardData) {
+function getCardElement(cardData) {
 const cardElement = cardTemplate.cloneNote(true);
 const cardImageEl = cardElement.querySelector(".card__image");
 const cardTitleEl = cardElement.querySelector(".card__title");
