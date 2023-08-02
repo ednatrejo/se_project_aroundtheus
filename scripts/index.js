@@ -33,20 +33,22 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
-const profileDescription = document.querySelector('.profile__description');
+const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector("#profile-discription-input");
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-con
+const profileEditForm = document.querySelector(".modal__form");
+const cardListEl = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 
 /* --------------------------------------------------------------------------------*/
 /*                              Functions                                         */
 /* --------------------------------------------------------------------------------*/
 
-function closePopop() {
+
+function closePopup() {
   profileEditModal.classList.remove("modal__opened");
 }
+
 function getCardElment(cardData) {
     // clone the template element with all its content and store it in a cardElement variable
     const cardElement = cardTemplate.cloneNote(true);
@@ -69,11 +71,11 @@ function getCardElment(cardData) {
 /*                              Event Handlers                                     */
 /* --------------------------------------------------------------------------------*/
 
-function handleProfileEditSumbit(e) {
+function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.vale;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopop();
+  closePopup();
 }
 
 /* --------------------------------------------------------------------------------*/
@@ -81,17 +83,17 @@ function handleProfileEditSumbit(e) {
 /* --------------------------------------------------------------------------------*/
 
 
-profileEditButton.addEventListener('click', () => {
+profileEditButton.addEventListener("click", () => {
   profileTitleInput.vale = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add('modal__opened');
+  profileEditModal.classList.add("modal__opened");
 })
 
-profileEditCloseButton.addEventListener("click", closePopop);
+profileEditCloseButton.addEventListener("click", closePopup);
 
-profileEditForm.addEventListener("sumbit", handleProfileEditSumbit);
+profileEditForm.addEventListener("sumbit", handleProfileEditSubmit);
 
 initialCards.forEach((cardData)=> {
 const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+cardListEl.prepend(cardElement);
 });
