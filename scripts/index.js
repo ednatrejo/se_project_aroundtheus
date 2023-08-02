@@ -25,18 +25,49 @@ const initialCards = [
 },
 ];
 
+/* --------------------------------------------------------------------------------*/
+/*                              Elements                                          */
+/* --------------------------------------------------------------------------------*/
+
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
+const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector('.profile__description');
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescriptionInput = document.querySelector("#profile-discription-input");
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+
+/* --------------------------------------------------------------------------------*/
+/*                              Functions                                         */
+/* --------------------------------------------------------------------------------*/
+
+function closePopop() {
+  profileEditModal.classList.remove("modal__opened");
+}
+
+/* --------------------------------------------------------------------------------*/
+/*                              Event Handlers                                     */
+/* --------------------------------------------------------------------------------*/
+
+function handleProfileEditSumbit(e) {
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.vale;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closePopop();
+}
+
+/* --------------------------------------------------------------------------------*/
+/*                              Event Listeners                                   */
+/* --------------------------------------------------------------------------------*/
 
 
 profileEditButton.addEventListener('click', () => {
+  profileTitleInput.vale = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add('modal__opened');
 })
 
-const profileEditButton = document.querySelector("#profile-edit-button");
-const profileEditModal = document.querySelector("#profile-edit-modal");
+profileEditCloseButton.addEventListener("click", closePopop);
 
-
-profileEditButton.addEventListener('click', () => {
-  profileEditModal.classList.remove('modal__closed');
-})
+profileEditForm.addEventListener("sumbit", handleProfileEditSumbit);

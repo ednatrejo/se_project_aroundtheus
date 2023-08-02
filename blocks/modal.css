@@ -22,7 +22,6 @@
   padding: 36px;
   border-radius: 10px;
   position: relative;
-  flex-direction: column;
 
 }
 
@@ -39,6 +38,16 @@
   bottom: calc(100% + 5px);
   left: calc(100% + 5px);
 
+}
+
+.modal__title {
+  font-family: "Inter", Arial, sans-serif;
+  font-style:normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000;
+  margin: 0 0 24px;
 }
 
 .modal__close:hover {
