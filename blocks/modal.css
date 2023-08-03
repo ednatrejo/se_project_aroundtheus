@@ -29,7 +29,7 @@
   margin: 0 0 24px;
 }
 
-.modal_opened {
+.modal__opened {
   visibility: visible;
   display: flex;
   pointer-events: all;

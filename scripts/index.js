@@ -49,12 +49,12 @@ function closePopup() {
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__description");
+  const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
 
+  cardImageEl.src = cardData.link;
+  cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
-  cardImageEl.setAttribute("src", cardData.link);
-  cardTitleEl.setAttribute("alt", cardData.name);
 
   return cardElement;
 }
