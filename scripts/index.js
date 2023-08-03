@@ -65,7 +65,7 @@ function getCardElement(cardData) {
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
-  profileTitle.textContent = profileTitleInput.vale;
+  profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup();
 }
@@ -75,7 +75,7 @@ function handleProfileEditSubmit(e) {
 /* --------------------------------------------------------------------------------*/
 
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.vale = profileTitle.textContent;
+  profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal__opened");
 });
