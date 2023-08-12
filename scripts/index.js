@@ -24,9 +24,13 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
   },
 ];
-
-const profileEditButton = document.querySelector("#profile-edit-button");
+// Wrappers
+const cardWrap = document.querySelector(".cards__list");
 const profileEditModal = document.querySelector("#profile-edit-modal");
+const profileFormElement = document.querySelector("modal__form");
+
+//Butons and other DOM nodes
+const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
@@ -34,6 +38,8 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-discription-input"
 );
+
+// Form data
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
@@ -74,17 +80,14 @@ function handleProfileEditSubmit(e) {
 /*                              Event Listeners                                   */
 /* --------------------------------------------------------------------------------*/
 
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal__opened");
 });
-
 profileEditCloseButton.addEventListener("click", closePopup);
 
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-
 initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  cardWrap.prepend(getCardElement(cardData));
 });
