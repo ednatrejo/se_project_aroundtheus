@@ -1,19 +1,18 @@
-
 .card {
   display: flex;
   flex-direction: column;
   list-style: none;
   border-radius: 10px;
   overflow: hidden;
-  }
+}
 
-  .card__image {
+.card__image {
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
-  }
-  .card__title {
-    margin: 0;
+}
+.card__title {
+  margin: 0;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 24px;
   line-height: 29px;
@@ -21,37 +20,55 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  }
-  .card__description {
-    display: flex;
-    background-color: white;
-    color: black;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 20px;
-    padding-right: 20px;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .card__image-title {
-    font-family: "Inter", Arial, sans-serif;
-    line-height: 29px;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 24px;
-    margin: 0;
-    max-width: 200px;
-  }
+}
+.card__description {
+  display: flex;
+  background-color: white;
+  color: black;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.card__image-title {
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 29px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  margin: 0;
+  max-width: 200px;
+}
 
-  .card__like-button {
-    background: transparent url(../images/heart-disable.svg) center no-repeat;
-    width: 21px;
-    height: 18px;
-    border: none;
-  }
-  
-  .card__like-button:hover {
-    opacity: 50%;
-    transition: 0.1s;
-    cursor: pointer;
-  }
+.card__like-button {
+  background: transparent url(../images/heart-disable.svg) center no-repeat;
+  width: 21px;
+  height: 18px;
+  border: none;
+}
+.card__like-button_active {
+  background: transparent url(../images/like-active.svg) center no-repeat;
+}
+.card__like-button:hover {
+  opacity: 50.5;
+  cursor: pointer;
+}
+
+.card__delete-button {
+  background: transparent url(../images/trash-button.svg) center no-repeat;
+  width: 18px;
+  min-width: 18px;
+  height: 19.3px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  transition: opacity 0.5s;
+}
+
+.card__delete-button:hover {
+  opacity: 0.5;
+}
