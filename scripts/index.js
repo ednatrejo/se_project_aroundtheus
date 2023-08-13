@@ -56,9 +56,9 @@ const cardUrlInput = addCardFormElement.querySelector(
   ".profile-discription-input_url"
 );
 
-/*const previewImageModal = document.querySelector("#previewImageModal");
+const previewImageModal = document.querySelector("#previewImageModal");
 const modalImage = document.querySelector("#modalImage");
-const modalText = document.querySelector("#modalText");*/
+const modalText = document.querySelector("#modalText");
 
 /* --------------------------------------------------------------------------------*/
 /*                              Functions                                         */
@@ -91,8 +91,12 @@ function getCardElement(cardData) {
     cardElement.remove("cardElement");
   });
 
-  // add click listener to the cardImage element
-  // openPopup with previewImageModal
+  cardImageEl.addEventListener("click", () => {
+    openPopup(previewImageModal);
+    modalImage.alt = cardData.name;
+    modalImage.src = cardData.link;
+    modalText.textContent = cardData.name;
+  });
 
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
