@@ -43,83 +43,89 @@
         <p class="footer__content">&copy; 2023 Around the U.S.</p>
       </footer>
     </div>
-<!-- add card modal-->
-<div class="modal" id="add-card-modal">
-  <div class="modal__container">
-    <button class="modal__close" type="button"></button>
-    <p class="modal__title">New Place</p>
-    <form class="modal__form">
-      <input
-        type="text"
-        name="title"
-        id="profile-title-input_title"
-        class="modal__input"
-        placeholder="Title"
-      />
-      <input
-        class="modal__input"
-        type="text"
-        id="profile-discription-input_url"
-        name="url"
-        placeholder="Image URL"
-      />
-      <button class="modal__button" type="submit">Save</button>
-    </form>
-  </div>
-
-
-<!-- Edit Modal-->
-    <div class="modal" id="profile-edit-modal">
+    <!-- add card modal-->
+    <div class="modal" id="add-card-modal">
       <div class="modal__container">
         <button class="modal__close" type="button"></button>
-        <p class="modal__title">Edit Profile</p>
+        <p class="modal__title">New Place</p>
         <form class="modal__form">
           <input
             type="text"
             name="title"
-            id="profile-title-input"
+            id="profile-title-input_title"
             class="modal__input"
-            placeholder="Name"
+            placeholder="Title"
           />
           <input
             class="modal__input"
             type="text"
-            id="profile-discription-input"
-            name="description"
-            placeholder="Description"
+            id="profile-discription-input_url"
+            name="url"
+            placeholder="Image URL"
           />
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
-    </div>
-<!-- preview image-->
 
-<div class="modal" id="previewImageModal">
-  <div class="modal__image-container">
-    <img
-      class="modal__image"
-      id="modalImage"
-      alt="card image preview"
-      src="#" />
-    <p class="modal__text" id="modalText"></p>
-    <button
-      class="modal__close"
-      id="previewCloseButton"
-      type="button"></button>
-  </div>
-</div>
+      <!-- Edit Modal-->
+      <div class="modal" id="profile-edit-modal">
+        <div class="modal__container">
+          <button
+            class="modal__close"
+            id="profileCloseButon"
+            type="button"
+          ></button>
+          <p class="modal__title">Edit Profile</p>
+          <form class="modal__form">
+            <input
+              type="text"
+              name="title"
+              id="profile-title-input"
+              class="modal__input"
+              placeholder="Name"
+            />
+            <input
+              class="modal__input"
+              type="text"
+              id="profile-discription-input"
+              name="description"
+              placeholder="Description"
+            />
+            <button class="modal__button" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+      <!-- preview image-->
 
-<!-- remove and like button-->
-    <template id="card-template">
-      <li class="card">
-        <img src="" class="card__image" alt="" />
-        <div class="card__description">
-          <h2 class="card__title"></h2>
-          <button type="button" class="card__like-button"></button>
-          <button type="button" class="card__delete-button"></button>
+      <div class="modal" id="previewImageModal">
+        <div class="modal__image-container">
+          <img
+            class="modal__image"
+            id="modalImage"
+            alt="card image preview"
+            src="#"
+          />
+          <p class="modal__text" id="modalText"></p>
+          <button
+            class="modal__close"
+            id="previewCloseButton"
+            type="button"
+          ></button>
+        </div>
+      </div>
+
+      <!-- remove and like button-->
+      <template id="card-template">
+        <li class="card">
+          <img src="" class="card__image" alt="" />
+          <div class="card__description">
+            <h2 class="card__title"></h2>
+            <button type="button" class="card__like-button"></button>
+            <button type="button" class="card__delete-button"></button>
+          </div>
+        </li>
+      </template>
+      <script src="./scripts/index.js" defer></script>
     </div>
-      </li>
-    </template>
- <script src="./scripts/index.js" defer></script>
   </body>
 </html>

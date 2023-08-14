@@ -31,6 +31,7 @@
   padding-right: 20px;
   align-items: center;
   justify-content: space-between;
+  border-radius: 0px 0px 10px 10px;
 }
 .card__image-title {
   font-family: "Inter", Arial, sans-serif;
@@ -45,8 +46,11 @@
 .card__like-button {
   background: transparent url(../images/heart-disable.svg) center no-repeat;
   width: 21px;
+  min-width: 21px;
   height: 18px;
   border: none;
+  cursor: pointer;
+  transition: opacity 0.5s;
 }
 .card__like-button_active {
   background: transparent url(../images/like-active.svg) center no-repeat;
@@ -58,15 +62,13 @@
 
 .card__delete-button {
   background: transparent url(../images/trash-button.svg) center no-repeat;
-  width: 18px;
-  min-width: 18px;
-  height: 19.3px;
+  width: 21px;
+  min-width: 21px;
+  height: 18px;
   border: none;
   cursor: pointer;
-  position: absolute;
-  top: 18px;
-  right: 15px;
   transition: opacity 0.5s;
+  position: relative;
 }
 
 .card__delete-button:hover {
