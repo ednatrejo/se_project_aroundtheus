@@ -68,8 +68,8 @@
   cursor: pointer;
   position: absolute;
   transition: opacity 0.5s;
-  top: 0;
-  right: 0;
+  top: 15px;
+  right: 15px;
 }
 
 .card__delete-button:hover {
