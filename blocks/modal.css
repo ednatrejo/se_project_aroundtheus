@@ -157,6 +157,7 @@
 
 .modal__image-container {
   margin: auto;
+  position: relative;
 }
 
 .modal__image {
