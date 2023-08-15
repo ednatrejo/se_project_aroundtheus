@@ -44,17 +44,16 @@ const profileDescriptionInput = document.querySelector(
   "#profile-discription-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const addCardFormElement = profileEditModal.querySelector(".modal__form");
+const addCardFormElement = addCardModal.querySelector(".modal__form");
 
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-
 const cardTitleInput = addCardFormElement.querySelector(
-  ".profile-title-input_title"
+  "#profile-title-input_title"
 );
 const cardUrlInput = addCardFormElement.querySelector(
-  ".profile-discription-input_url"
+  "#profile-discription-input_url"
 );
 
 const previewImageModal = document.querySelector("#previewImageModal");
