@@ -133,7 +133,11 @@ addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 previewCloseButton.addEventListener("click", () =>
   closePopup(previewImageModal)
 );
-profileEditButton.addEventListener("click", () => openPopup(profileEditModal));
+profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
+  openPopup(profileEditModal);
+});
 
 profileEditCloseButton.addEventListener("click", () =>
   closePopup(profileEditModal)
