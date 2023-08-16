@@ -65,11 +65,11 @@ const modalText = document.querySelector("#modalText");
 /* --------------------------------------------------------------------------------*/
 
 function openPopup(modal) {
-  modal.classList.add("modal__opened");
+  modal.classList.add("modal_opened");
 }
 
 function closePopup(modal) {
-  modal.classList.remove("modal__opened");
+  modal.classList.remove("modal_opened");
 }
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
@@ -88,7 +88,7 @@ function getCardElement(cardData) {
 
   const deleteButton = cardElement.querySelector(".card__delete-button");
   deleteButton.addEventListener("click", () => {
-    cardElement.remove("cardElement");
+    cardElement.remove("");
   });
 
   cardImageEl.addEventListener("click", () => {
@@ -119,6 +119,7 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
+  e.target.reset();
   renderCard({ name, link }, cardsWrap);
   closePopup(addCardModal);
 }
