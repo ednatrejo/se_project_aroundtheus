@@ -39,11 +39,10 @@
 .modal_opened {
   visibility: hidden;
   display: none;
-  z-index:0;
+  z-index: 0;
   display: flex;
   pointer-events: all;
   opacity: 1;
-
 }
 
 .modal__close {
@@ -209,4 +208,5 @@
     font-style: normal;
     font-weight: 900;
     line-height: normal;
+  }
 }
