@@ -60,6 +60,8 @@
   z-index: 0;
   top: -40px;
   right: -40px;
+  visibility: hidden;
+  display: none;
 }
 
 .modal__close:hover {
@@ -197,4 +199,13 @@
     right: 18.3px;
     left: 265px;
   }
+
+  .modal__title {
+    width: 238px;
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
 }
