@@ -1,4 +1,5 @@
 .modal {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -6,9 +7,11 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: flex;
   padding: 0 19px;
-  visibility: hidden;
+  visibility: none;
+  pointer-events: none;
+  opacity: 0;
+  transition: visibility 0s 0.6s, opacity 0.6s linear;
 }
 
 .modal__container {
@@ -37,46 +40,23 @@
 
 .modal_opened {
   visibility: visible;
-
-  display: flex;
-
   pointer-events: all;
-
   opacity: 1;
-
   transition: visibility 0s, opacity 0.6s linear;
 }
 
 .modal__close {
   width: 40px;
-
   height: 40px;
-
   background-image: url("../images/close.icon.svg");
-
   background-repeat: no-repeat;
-
   background-size: contain;
-
   border: none;
-
   background-color: transparent;
-
   cursor: pointer;
-
-  transition: visibility 1s, opacity 0.5s linear;
-
   position: absolute;
-
   bottom: calc(100% + 5px);
-
   left: calc(100% + 5px);
-
-  z-index: 0;
-
-  top: -40px;
-
-  right: -40px;
 }
 
 .modal__close:hover {
