@@ -148,3 +148,18 @@ initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 // add new card button
 addNewCards.addEventListener("click", () => openPopup(addCardModal));
 addCardCloseButton.addEventListener("click", () => closePopup(addCardModal));
+
+// close with esc or click //
+
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    const openPopup = document.querySelector(".modal_opened");
+    closePopup(openPopup);
+  }
+});
+
+profileEditForm.addEventListener("mousedown", function (evt) {
+  if (evt.target.contains(".modal__close") || evt.target.contains(".modal")) {
+    closePopup(profileEditForm);
+  }
+});
