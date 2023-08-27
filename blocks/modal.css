@@ -176,7 +176,13 @@
 .modal__label {
   width: 100%;
 }
-
+.modal__error {
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  transition: opacity 0.3s;
+  width: 358px;
+}
 @media screen and (min-width: 320px) and (max-width: 880px) {
   .modal__container {
     left: 0;

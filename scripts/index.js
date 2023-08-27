@@ -157,9 +157,3 @@ document.addEventListener("keydown", function (evt) {
     closePopup(openPopup);
   }
 });
-
-profileEditForm.addEventListener("mousedown", function (evt) {
-  if (evt.target.contains(".modal__close") || evt.target.contains(".modal")) {
-    closePopup(profileEditForm);
-  }
-});
