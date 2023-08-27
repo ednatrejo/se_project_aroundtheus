@@ -157,3 +157,20 @@ document.addEventListener("keydown", function (evt) {
     closePopup(openPopup);
   }
 });
+profileEditModal.addEventListener("mousedown", function (evt) {
+  if (
+    evt.target.classList.contains("modal__close") ||
+    evt.target.classList.contains("modal")
+  ) {
+    closePopup(profileEditModal);
+  }
+});
+
+addCardModal.addEventListener("mousedown", function (evt) {
+  if (
+    evt.target.classList.contains("modal__close") ||
+    evt.target.classList.contains("modal")
+  ) {
+    closePopup(addCardModal);
+  }
+});
