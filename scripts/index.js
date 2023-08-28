@@ -174,3 +174,12 @@ addCardModal.addEventListener("mousedown", function (evt) {
     closePopup(addCardModal);
   }
 });
+
+previewImageModal.addEventListener("mousedown", function (evt) {
+  if (
+    evt.target.classList.contains("modal__close") ||
+    evt.target.classList.contains("modal")
+  ) {
+    closePopup(previewImageModal);
+  }
+});
