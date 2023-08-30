@@ -71,6 +71,7 @@ function openPopup(modal) {
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
 }
+
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   cardsWrap.prepend(cardElement);
@@ -153,10 +154,11 @@ addCardCloseButton.addEventListener("click", () => closePopup(addCardModal));
 
 document.addEventListener("keydown", function (evt) {
   if (evt.key === "Escape") {
-    const openPopup = document.querySelector(".modal_opened");
-    closePopup(openPopup);
+    const ModalCloseEsc = document.querySelector(".modal_opened");
+    closePopup(profileEditModal, addCardModal);
   }
 });
+
 profileEditModal.addEventListener("mousedown", function (evt) {
   if (
     evt.target.classList.contains("modal__close") ||
