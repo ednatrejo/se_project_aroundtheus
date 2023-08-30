@@ -154,8 +154,10 @@ addCardCloseButton.addEventListener("click", () => closePopup(addCardModal));
 
 document.addEventListener("keydown", function (evt) {
   if (evt.key === "Escape") {
-    const ModalCloseEsc = document.querySelector(".modal_opened");
-    closePopup(profileEditModal, addCardModal);
+    const CurrentlyOpenModal = document.querySelector("modal_opened");
+    closePopup(profileEditModal);
+    closePopup(addCardModal);
+    closePopup(previewImageModal);
   }
 });
 
