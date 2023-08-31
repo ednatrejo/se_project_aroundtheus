@@ -139,7 +139,6 @@ function handleAddCardFormSubmit(e) {
 /* --------------------------------------------------------------------------------*/
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
-closePopup(previewImageModal);
 
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
@@ -147,15 +146,10 @@ profileEditButton.addEventListener("click", () => {
   openPopup(profileEditModal);
 });
 
-profileEditCloseButton.addEventListener("click", () =>
-  closePopup(profileEditModal)
-);
-
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
 // add new card button
 addNewCards.addEventListener("click", () => openPopup(addCardModal));
-addCardCloseButton.addEventListener("click", () => closePopup(addCardModal));
 
 // close with esc or click //
 
