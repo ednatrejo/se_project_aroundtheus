@@ -1,6 +1,7 @@
-import Card from "./components/Card.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 
-const initialCards = [
+export const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -26,12 +27,12 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
   },
 ];
-/*const cardData = {
+const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
-const card = new card(cardData, "#card-template");
-card.getView(); */
+const Card = new Card(cardData, "#card-template");
+Card.getView();
 
 const cardsWrap = document.querySelector(".cards__list");
 const addNewCards = document.querySelector(".profile__add-button");
@@ -66,7 +67,7 @@ const modalText = document.querySelector("#modalText");
 /* --------------------------------------------------------------------------------*/
 /*                              Functions                                         */
 /* --------------------------------------------------------------------------------*/
-function openPopup(modal) {
+/* function openPopup(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEsc);
 }
@@ -79,7 +80,7 @@ function handleEsc(evt) {
     const currentlyOpenModal = document.querySelector(".modal_opened");
     closePopup(currentlyOpenModal);
   }
-}
+} */
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   cardsWrap.prepend(cardElement);
