@@ -1,6 +1,14 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
 export const initialCards = [
   {
     name: "Yosemite Valley",
@@ -31,8 +39,8 @@ const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
-const Card = new Card(cardData, "#card-template");
-Card.getView();
+// const Card = new Card(cardData, "#card-template");
+// Card.getView();
 
 const cardsWrap = document.querySelector(".cards__list");
 const addNewCards = document.querySelector(".profile__add-button");
@@ -81,9 +89,14 @@ function handleEsc(evt) {
     closePopup(currentlyOpenModal);
   }
 } */
-function renderCard(cardData, wrapper) {
+/*function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   cardsWrap.prepend(cardElement);
+}*/
+
+function renderCard(cardData, wrapper) {
+  const card = new Card(cardData, "#card-template");
+  cardListEl.prepend(card.getView);
 }
 /* function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);

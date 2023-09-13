@@ -1,7 +1,7 @@
 // enabling validation by calling enableValidation() //l
 // pass all the settings on call //
 
-export function showInputError(
+/* export function showInputError(
   formEl,
   inputEl,
   { inputErrorClass, errorClass }
