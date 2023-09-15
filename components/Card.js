@@ -21,7 +21,7 @@ class Card {
   }
 
   _handleDeleteIcon() {
-    this._deleteButton.parentNode.remove();
+    this._element.remove();
   }
 
   _getTemplate() {

@@ -146,6 +146,10 @@
   transition: 0.2s;
 }
 
+.modal__button_disabled:hover {
+  opacity: 0.2;
+}
+
 .modal__image-container {
   margin: auto;
   position: relative;

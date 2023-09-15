@@ -133,6 +133,7 @@ function handleCardFormEdit(evt) {
   renderCard({ name, link }, cardList);
   closePopup(cardModal);
   addCardFormEdit.reset();
+  toggleButtonState();
 }
 
 // profile events
