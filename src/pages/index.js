@@ -1,8 +1,8 @@
-import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js";
+import Card from "../../components/Card.js";
+import FormValidator from "../../components/FormValidator.js";
+import "../index.js";
 
 // Validation //
-
 const config = {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",

@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="favicon.ico" />
     <title>Around the U.S.</title>
   </head>
@@ -11,7 +10,7 @@
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/vector.svg"
+          src="<%=require('./images/vector.svg')%>"
           alt="Around The U.S. logo"
           class="header__logo"
         />
@@ -19,7 +18,7 @@
       <main class="content">
         <section class="profile">
           <img
-            src="./images/jacques-cousteau.jpg"
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="jacques Cousteau"
             class="profile__image"
           />
@@ -129,7 +128,7 @@
           class="modal__close_preview modal__close"
           id="preview-modal-close"
         ></button>
-        <img src="#" alt="card image" class="preview-image" />
+        <img src="<%=require('#')%>" alt="card image" class="preview-image" />
         <p class="modal__preview-text"></p>
       </div>
     </div>
@@ -137,14 +136,12 @@
     <template class="card-template" id="card-template">
       <li class="card">
         <button class="card__delete-button" type="button"></button>
-        <img src="#" alt="" class="card__image" />
+        <img src="<%=require('#')%>" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>
         </div>
       </li>
     </template>
-
-    <script src="./pages/index.js" type="module" defer></script>
   </body>
 </html>

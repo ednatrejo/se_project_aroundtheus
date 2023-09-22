@@ -22,6 +22,7 @@ class Card {
 
   _handleDeleteIcon() {
     this._element.remove();
+    this._element = null;
   }
 
   _getTemplate() {
