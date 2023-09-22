@@ -1,6 +1,10 @@
 import Card from "../../components/Card.js";
 import FormValidator from "../../components/FormValidator.js";
 import "../index.js";
+import Section from "../components/Section.js";
+import Popup from "../components/Popup.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
 
 // Validation //
 const config = {
@@ -149,3 +153,23 @@ editProfileBtn.addEventListener("click", () => {
 
 addCardFormEdit.addEventListener("submit", handleCardFormEdit);
 addCardButton.addEventListener("click", () => openPopup(cardModal));
+
+// Instances of the Classes
+// When the user clicks on the card, this function will open the popup with an image.
+const newCardPopup = new PopupWithForm("card-modal", () => {
+  // handleFormSubmit
+  newCardPopup.open();
+
+  newCardPopup.close();
+});
+
+// UserInfo
+const userInfo = new UserInfo(
+  ".profile__title",
+  ".profile__description",
+  () => {
+    userInfo.open();
+
+    userInfo.close();
+  }
+);

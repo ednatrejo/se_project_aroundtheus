@@ -1,3 +1,4 @@
+// responsible for rendering information about the user on the page
 export default class UserInfo {
   constructor(nameSelector, jobSelector) {
     this._name = document.querySelector(nameSelector);
@@ -5,7 +6,7 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-    this._userInfo = {
+    const userInfo = {
       name: this._name.textContent,
       description: this._job.textContent,
     };
