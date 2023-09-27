@@ -4,8 +4,10 @@ export default class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  renderItems(items) {
-    items.forEach(this._renderer);
+  renderItems() {
+    this._items.forEach((item) => {
+      this._renderer(item);
+    });
   }
 
   addItem(element) {

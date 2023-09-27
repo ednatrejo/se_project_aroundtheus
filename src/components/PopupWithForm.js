@@ -5,36 +5,28 @@ export default class PopupWithForm extends Popup {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
-  }
-
-  close() {
-    this._popupForm.reset();
-    super.close();
+    this._inputItems = this._popupForm.querySelectorAll(".modal__input");
   }
 
   _getInputValues() {
-    this._inputList = this._popupElement.querySelectorAll(".modal__input");
-
-    this._formValues = {};
-    this._inputList.forEach(
-      (input) => (this._formValues[input.name] = input.value)
-    );
-
-    return this._formValues;
-  }
-
-  setEventListeners() {
-    this._popupElement.addEventListener("submit", () => {
-      this._handleFormSubmit(this._getInputValues());
-
-      this.close();
+    const inputValues = {};
+    this._inputItems.forEach((inputItems) => {
+      inputValues[inputItems.name] = inputItems.value;
     });
-    super.setEventListeners();
+    return inputValues;
   }
 
   close() {
     this._popupForm.reset();
     super.close();
+  }
+
+  setEventListeners() {
+    this._popupForm.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit(this._getInputValues());
+    });
+    super.setEventListeners();
   }
 }
 // This section focuses on opening and closing cards
