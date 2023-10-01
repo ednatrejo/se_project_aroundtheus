@@ -29,5 +29,12 @@ export default class Popup {
         this.close();
       }
     });
+    D;
+    this._popupCloseBtn.addEventListener("click", () => {
+      this.close();
+    });
+    this._popupImage.addEventListener("click", () => {
+      this.open();
+    });
   }
 }
