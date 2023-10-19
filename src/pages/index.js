@@ -104,3 +104,31 @@ addCardButton.addEventListener("click", () => {
   addFormValidator.toggleButtonState();
   newFormPopup.open();
 });
+
+fetch("https://around-api.en.tripleten-services.com/v1", {
+  headers: {
+    authorization: "56e30dc-2883-4270-a59e-b2f7bae969c6",
+  },
+})
+  .then((res) => res.json())
+  .then((result) => {
+    console.log(result);
+  });
+
+const Api = new Api({
+  baseURL: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "983cc012-9217-4309-b83d-4ef58e3e69de",
+    "Content-Type": "application/json",
+  },
+});
+
+let user = api.getUserInfo();
+let apiCards = api.getInitialCards();
+
+Promise.all([user, apiCards]).then(([userData, initialCards]) => {
+  user = userData._id;
+  // console.log("userData", userData);
+  pageUserInfo.setUserInfo(userData);
+  pageUserInfo.setUserAvatar(userData);
+  console.log(initialCards);
