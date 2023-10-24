@@ -105,16 +105,6 @@ addCardButton.addEventListener("click", () => {
   newFormPopup.open();
 });
 
-fetch("https://around-api.en.tripleten-services.com/v1", {
-  headers: {
-    authorization: "56e30dc-2883-4270-a59e-b2f7bae969c6",
-  },
-})
-  .then((res) => res.json())
-  .then((result) => {
-    console.log(result);
-  });
-
 const Api = new Api({
   baseURL: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -123,12 +113,70 @@ const Api = new Api({
   },
 });
 
-let user = api.getUserInfo();
-let apiCards = api.getInitialCards();
+let user = api.getUserInfo().catch((err) => console.log(err));
+let apiCards = api.getInitialCards().catch((err) => console.log(err));
+let cardSection;
 
-Promise.all([user, apiCards]).then(([userData, initialCards]) => {
-  user = userData._id;
-  // console.log("userData", userData);
-  pageUserInfo.setUserInfo(userData);
-  pageUserInfo.setUserAvatar(userData);
-  console.log(initialCards);
+function createCard(cardData) {
+  const card = new Card(
+    cardData,
+    "#card-template",
+    (cardData) => {
+      imageViewerPopup.open(cardData);
+    },
+    () => {
+      deleteCardPopup.open();
+      deleteCardPopup.setSubmitAction(() => {
+        deleteCardPopup.setLoadingState(true);
+        api
+          .deleteCard(cardData._id)
+          .then(() => {
+            deleteCardPopup.close();
+            card.remove();
+          })
+          .catch((err) => console.log(err))
+          .finally(() => deleteCardPopup.setLoadingState(false));
+      });
+    },
+    (cardId) => {
+      const liked = card.getLikes();
+      if (!liked) {
+        api
+          .addLike(cardId)
+          .then((response) => {
+            card.setIsLiked(response.isLiked);
+          })
+          .catch((err) => console.log(err));
+      } else {
+        api
+          .deleteLike(cardId)
+          .then((response) => {
+            card.setIsLiked(response.isLiked);
+          })
+          .catch((err) => console.log(err));
+      }
+    }
+  );
+  return card.getView();
+}
+
+Promise.all([user, apiCards])
+  .then(([userData, initialCards]) => {
+    user = userData._id;
+    pageUserInfo.setUserInfo(userData);
+    pageUserInfo.setUserAvatar(userData);
+
+    cardSection = new Section(
+      {
+        items: initialCards,
+        renderer: (initialCardData) => {
+          const card = createCard(initialCardData);
+          cardSection.prependItem(card);
+        },
+      },
+      ".cards__list"
+    );
+
+    cardSection.renderItems();
+  })
+  .catch((err) => console.log(err));

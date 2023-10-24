@@ -1,20 +1,23 @@
-// responsible for rendering information about the user on the page
 export default class UserInfo {
-  constructor(userNameSelector, jobTitleSelector) {
-    this._name = document.querySelector(userNameSelector);
-    this._about = document.querySelector(jobTitleSelector);
+  constructor({ nameSelector, jobSelector, avatarSelector }) {
+    this._profileTitle = document.querySelector(nameSelector);
+    this._profileDescription = document.querySelector(jobSelector);
+    this._avatarElement = document.querySelector(avatarSelector);
   }
 
   getUserInfo() {
-    const userInfo = {
-      name: this._name.textContent,
-      about: this._about.textContent,
-    };
-    return userInfo;
+    this._name = this._profileTitle.textContent;
+    this._job = this._profileDescription.textContent;
+    return { name: this._name, job: this._job };
   }
 
-  setUserInfo(data) {
-    this._name.textContent = data.name;
-    this._about.textContent = data.about;
+  setUserInfo(inputValues) {
+    this._profileTitle.textContent = inputValues.name;
+    this._profileDescription.textContent = inputValues.about;
+  }
+
+  setUserAvatar(response) {
+    this._avatarElement.src = response.avatar;
+    this._avatarElement.alt = this._profileTitle.textContent;
   }
 }
