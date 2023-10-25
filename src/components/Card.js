@@ -21,19 +21,12 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._likeButton.addEventListener("click", () => {
-      this._handleLikeButton();
-    });
-
-    this._cardImageEl.addEventListener("click", () => {
-      this._handleCardClick({ name: this._name, link: this._link });
-    });
-
-    this._cardTrashButton = this._cardElement.querySelector(
-      ".card__trash-button"
+    this._likeButton.addEventListener("click", () => this._handleLikeIcon());
+    this._deleteButton.addEventListener("click", () =>
+      this._handleDeleteIcon()
     );
-    this._cardTrashButton.addEventListener("click", () => {
-      this._handleTrashClick();
+    this._cardImage.addEventListener("click", () => {
+      this._handleImageClick(this);
     });
   }
 
@@ -55,13 +48,13 @@ export default class Card {
     }
   }
 
-  _handleLikeButton() {
-    this._handleLikeClick(this._cardId);
+  _handleLikeIcon() {
+    this._likeButton.classList.toggle("card__like-button_active");
   }
 
-  remove() {
-    this._cardElement.remove();
-    this._cardElement = null;
+  _handleDeleteIcon() {
+    this._element.remove();
+    this._element = null;
   }
 
   _replaceImageData() {
@@ -71,11 +64,23 @@ export default class Card {
   }
 
   getView() {
-    this._cardImageEl = this._cardElement.querySelector(".card__image");
-    this._cardTitleEl = this._cardElement.querySelector(".card__title");
-    this._replaceImageData();
-    this._renderLikes();
+    this._element = this._getTemplate();
+    this._likeButton = this._element.querySelector(".card__like-button");
+    this._deleteButton = this._element.querySelector(".card__delete-button");
+    this._cardImage = this._element.querySelector(".card__image");
+    this._cardTitle = this._element.querySelector(".card__title");
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._cardTitle.textContent = this._name;
     this._setEventListeners();
-    return this._cardElement;
+    return this._element;
+  }
+
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
+    return cardElement;
   }
 }
