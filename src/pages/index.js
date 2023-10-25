@@ -7,6 +7,7 @@ import UserInfo from "../components/UserInfo.js";
 import initialCards from "../utils/Constants.js";
 import "./index.css";
 import Api from "../components/Api.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 const editProfileBtn = document.querySelector(".profile__edit-button");
 const profileModal = document.querySelector("#edit-modal");
@@ -53,7 +54,10 @@ newFormPopup.setEventListeners();
 
 //  profile edit popup
 const userInfo = new UserInfo(".profile__title", ".profile__text");
+
 const profileEditPopup = new PopupWithForm("#edit-modal", (data) => {
+  profileEditPopup.setLoadingState(true);
+  api;
   userInfo.setUserInfo(data);
   profileEditPopup.close();
 });
@@ -93,7 +97,7 @@ addCardButton.addEventListener("click", () => {
   newFormPopup.open();
 });
 
-const Api = new Api({
+const api = new Api({
   baseURL: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "a63d7be5-cb81-47a2-868d-3384f26705f9",
@@ -151,8 +155,7 @@ function createCard(cardData) {
 Promise.all([user, apiCards])
   .then(([userData, initialCards]) => {
     user = userData._id;
-    pageUserInfo.setUserInfo(userData);
-    pageUserInfo.setUserAvatar(userData);
+    userInfo.setUserInfo(userData);
 
     cardSection = new Section(
       {
@@ -168,3 +171,12 @@ Promise.all([user, apiCards])
     cardSection.renderItems();
   })
   .catch((err) => console.log(err));
+
+function fillProfileForm(e) {
+  const currentInfo = userInfo.getUserInfo();
+  profileTitleInput.value = currentInfo.name;
+  profileDescriptionInput.value = currentInfo.job;
+}
+
+const deleteCardPopup = new PopupWithConfirmation("#delete-card-popup");
+deleteCardPopup.setEventListeners();

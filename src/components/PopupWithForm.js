@@ -9,17 +9,13 @@ export default class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    const inputValues = {};
-    this._inputItems.forEach((inputItems) => {
-      inputValues[inputItems.name] = inputItems.value;
+    const inputsData = {};
+    this._formInputs.forEach((input) => {
+      inputsData[input.name] = input.value;
     });
-    return inputValues;
+    return inputsData;
   }
 
-  close() {
-    this._popupForm.reset();
-    super.close();
-  }
   _submitForm() {
     const formInputValues = this._getInputValues();
     this._handleFormSubmit(formInputValues);
@@ -33,11 +29,14 @@ export default class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    this._popupForm.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleCardFormSubmit(this._getInputValues());
-    });
     super.setEventListeners();
+    this._popupForm.addEventListener("submit", () => {
+      this._submitForm();
+    });
+  }
+
+  close() {
+    this._popupForm.reset(); // need this line to avoid saving the last input
+    super.close();
   }
 }
-// This section focuses on opening and closing cards
