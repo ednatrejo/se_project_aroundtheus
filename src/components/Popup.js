@@ -1,34 +1,42 @@
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
-    this._popupCloseBtn = this._popupElement.querySelector(".modal__close");
-    this._popupImage = document.querySelector(".preview-image");
   }
 
   open() {
-    this._popupElement.classList.add("modal_opened");
+    // opens popup
+    console.log("popup class open");
+    this._popupElement.classList.add("popup_opened");
     document.addEventListener("keydown", this._handleEscClose);
   }
 
   close() {
-    this._popupElement.classList.remove("modal_opened");
+    // closes popup
+    this._popupElement.classList.remove("popup_opened");
+    // rewrite for Esc key event listener
     document.removeEventListener("keydown", this._handleEscClose);
   }
 
   _handleEscClose = (evt) => {
-    if (evt.key === "Escape") {
+    // arrow function binds this to the popup so event listener removal works
+    // listens for esc button
+    if (evt.key == "Escape") {
+      this.close();
+    }
+  };
+
+  _handleClickAway = (evt) => {
+    // arrow function binds this to the popup
+    if (
+      evt.target.classList.contains("popup") ||
+      evt.target.classList.contains("popup__close")
+    ) {
       this.close();
     }
   };
 
   setEventListeners() {
-    this._popupElement.addEventListener("click", (evt) => {
-      if (
-        evt.target.classList.contains("modal") ||
-        evt.target.classList.contains("modal__close")
-      ) {
-        this.close();
-      }
-    });
+    // Click Away is the remaining event listener
+    this._popupElement.addEventListener("mousedown", this._handleClickAway);
   }
 }

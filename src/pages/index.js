@@ -6,6 +6,7 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import initialCards from "../utils/Constants.js";
 import "./index.css";
+import Api from "../components/Api.js";
 
 const editProfileBtn = document.querySelector(".profile__edit-button");
 const profileModal = document.querySelector("#edit-modal");
@@ -62,19 +63,6 @@ profileEditPopup.setEventListeners();
 const imagePopup = new PopupWithimage("#image-modal");
 imagePopup.setEventListeners();
 
-// section class
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (item) => {
-      const cardEl = renderCard(item);
-      section.addItem(cardEl);
-    },
-  },
-  ".cards__list"
-);
-section.renderItems();
-
 // functions
 function renderCard(data) {
   const card = new Card(data, "#card-template", handleImageClick);
@@ -108,7 +96,7 @@ addCardButton.addEventListener("click", () => {
 const Api = new Api({
   baseURL: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "983cc012-9217-4309-b83d-4ef58e3e69de",
+    authorization: "a63d7be5-cb81-47a2-868d-3384f26705f9",
     "Content-Type": "application/json",
   },
 });
