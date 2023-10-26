@@ -161,6 +161,7 @@ editAvatarValidator.enableValidation();
 function handleDeleteCardClick(card) {
   confirmDeleteModal.open();
   confirmDeleteModal.setSubmitAction(() => {
+    confirmDeleteModal.setLoadingState(true);
     const id = card.getId();
     api
       .removeCard(id)
