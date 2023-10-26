@@ -2,163 +2,215 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="favicon.ico" />
+    <meta content="width-device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
     <title>Around the U.S.</title>
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="<%=require('./images/vector.svg')%>"
-          alt="Around The U.S. logo"
           class="header__logo"
+          src="<%=require('./images/vector.svg')%>"
+          alt="Around the U.S. Logo"
         />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="jacques Cousteau"
-            class="profile__image"
-          />
+          <div class="profile__avatar-container">
+            <img
+              src="<%=require('./images/jacques-cousteau.jpg')%>"
+              alt="Avatar"
+              class="profile__image"
+            />
+            <button class="profile__image-edit"></button>
+          </div>
+
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
-            <button class="profile__edit-button" type="button"></button>
-            <p class="profile__text">Explorer</p>
+            <button
+              class="profile__edit-button"
+              id="profile-edit-button"
+              type="button"
+              aria-label="edit"
+            ></button>
+            <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            type="button"
+            aria-label="add"
+          ></button>
         </section>
-        <section class="cards page__section">
+        <section class="cards">
           <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer page__section">
-        <p class="footer__copyright">&copy; 2023 Around The U.S.</p>
+        <p class="footer__copyright">&copy; 2022 Around The U.S.</p>
       </footer>
     </div>
-
-    <!-- Delete card popup -->
-    <div class="modal" id="delete-card-popup">
-      <div class="modal__container modal__container_delete">
-        <button
-          class="modal__close"
-          id="delete-card-close-button"
-          type="button"
-        ></button>
-        <form class="modal__form">
-          <h3 class="modal__heading">Are you sure?</h3>
-          <button class="modal__button" type="submit">Yes</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Edit Modal -->
-    <div class="modal" id="edit-modal">
+    <!-- Profile Edit Modal -->
+    <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
-          type="button"
           class="modal__close"
-          id="profile-modal-close"
+          id="modal-close-button"
+          type="button"
         ></button>
-        <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form" id="edit-form">
+        <h3 class="modal__heading">Edit Profile</h3>
+        <form class="modal__form">
           <label class="modal__label">
             <input
-              type="text"
-              name="name"
               class="modal__input"
-              id="profile-title-input"
+              type="text"
+              name="title"
               placeholder="Name"
+              id="profile-title-input"
               minlength="2"
               maxlength="40"
               required
             />
-            <span class="modal__error" id="profile-title-input-error"></span>
+            <span class="modal__error" id="profile-title-input-error"
+              >The "Name" field must contain between 2 and 40 characters.</span
+            >
           </label>
           <label class="modal__label">
             <input
-              type="text"
-              name="about"
               class="modal__input"
-              id="profile-text-input"
+              type="text"
+              name="description"
               placeholder="Description"
+              id="profile-decription-input"
               minlength="2"
               maxlength="200"
               required
             />
-            <span class="modal__error" id="profile-text-input-error"></span>
+            <span class="modal__error" id="profile-decription-input-error"
+              >The "About" field must contain between 2 and 200
+              characters.</span
+            >
           </label>
-          <button type="submit" class="modal__button">Save</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Add Card Modal -->
-    <div class="modal" id="card-modal">
-      <div class="modal__container">
-        <button
-          type="button"
-          class="modal__close"
-          id="add-modal-close"
-        ></button>
-        <h2 class="modal__heading">New place</h2>
-        <form class="modal__form" id="add-form">
-          <label class="modal__label">
-            <input
-              type="text"
-              name="name"
-              class="modal__input"
-              id="add-title-input"
-              placeholder="Title"
-              minlength="1"
-              maxlength="30"
-              required
-            />
-            <span class="modal__error" id="add-title-input-error"></span>
-          </label>
-          <label class="modal__label">
-            <input
-              type="url"
-              name="link"
-              class="modal__input"
-              id="add-url-input"
-              placeholder="Image URL"
-              required
-            />
-            <span class="modal__error" id="add-url-input-error"></span>
-          </label>
-          <button
-            type="submit"
-            class="modal__button modal__button_disabled"
-            disabled
-          >
+          <button class="modal__button" type="submit" aria-label="save">
             Save
           </button>
         </form>
       </div>
     </div>
 
-    <!-- Image Modal -->
-    <div class="modal" id="image-modal">
-      <div class="modal__image-container">
-        <button
-          type="button"
-          class="modal__close_preview modal__close"
-          id="preview-modal-close"
-        ></button>
-        <img src="#" alt="card image" class="preview-image" />
-        <p class="modal__preview-text"></p>
+    <!-- Avatar Edit Modal -->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container">
+        <button class="modal__close" type="button"></button>
+        <h3 class="modal__heading">Change profile picture</h3>
+        <form class="modal__form" id="" edit-avatar-form>
+          <label class="modal__label">
+            <input
+              class="modal__input modal__input_type_url"
+              type="url"
+              name="avatar"
+              placeholder="Image URL"
+              id="avatar-url-input"
+              required
+            />
+            <span class="modal__error" id="avatar-url-input-error"
+              >The "Image URL" field must contain a URL.</span
+            >
+          </label>
+          <button class="modal__button" type="submit" aria-label="save">
+            Save
+          </button>
+        </form>
       </div>
     </div>
 
-    <template class="card-template" id="card-template">
+    <!-- Confirm Delete Modal -->
+    <div class="modal" id="confirm-delete-modal">
+      <div class="modal__container modal__container_type_confirmation">
+        <button
+          class="modal__close"
+          id="modal-close-button"
+          type="button"
+        ></button>
+        <h3 class="modal__heading">Are you sure?</h3>
+        <form class="modal__form">
+          <button
+            class="modal__button"
+            id="delete__button"
+            type="submit"
+            aria-label="save"
+          >
+            Yes
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add Card Modal -->
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button class="modal__close" type="button"></button>
+        <h3 class="modal__heading">New Place</h3>
+        <form class="modal__form" id="add-card-form">
+          <label class="modal__label">
+            <input
+              class="modal__input modal__input_type_title"
+              type="text"
+              name="name"
+              placeholder="Title"
+              id="place-title-input"
+              minlength="1"
+              maxlength="30"
+              required
+            />
+            <span class="modal__error" id="place-title-input-error"
+              >The "Title" field must contain between 1 and 30 characters.</span
+            >
+          </label>
+          <label class="modal__label">
+            <input
+              class="modal__input modal__input_type_url"
+              type="url"
+              name="link"
+              placeholder="Image URL"
+              id="place-url-input"
+              required
+            />
+            <span class="modal__error" id="place-url-input-error"
+              >The "Image URL" field must contain a URL.</span
+            >
+          </label>
+          <button class="modal__button" type="submit" aria-label="save">
+            Create
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Image Popup Modal -->
+    <div class="modal" id="image-popup">
+      <div class="modal__container modal__container_type_image">
+        <button class="modal__close" type="button"></button>
+        <h3 class="modal__caption"></h3>
+        <img class="modal__image" src=" " alt="" />
+      </div>
+    </div>
+
+    <template id="card-template">
       <li class="card">
-        <button class="card__delete-button" type="button"></button>
-        <img src="#" alt="" class="card__image" />
+        <img src="" class="card__image" alt="" />
+        <button
+          class="card__delete-button"
+          type="button"
+          aria-label="delete"
+        ></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
-          <button class="card__like-button" type="button"></button>
+          <button
+            class="card__like-button"
+            type="button"
+            aria-label="like"
+          ></button>
         </div>
       </li>
     </template>

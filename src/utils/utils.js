@@ -1,32 +1,25 @@
-function handleEscKey(evt) {
-  if (evt.key == "Escape") {
-    const popupOpenedEl = document.querySelector(".modal_opened");
-    closePopup(popupOpenedEl);
+export const handleEscape = (e) => {
+  if (e.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
+    closePopup(modal);
   }
+};
+
+export function closePopup(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
 }
 
-function handleClickAway(evt) {
+export function openPopup(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscape);
+}
+
+export function handlePopupClose(e) {
   if (
-    evt.target.classList.contains("modal") ||
-    evt.target.classList.contains("modal__close")
+    e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal__close")
   ) {
-    closePopup(evt.currentTarget);
+    closePopup(e.currentTarget);
   }
 }
-
-function openPopup(popup) {
-  popup.classList.add("modal_opened");
-  // Checklist says Esc listener must be prompted by popup open
-  document.addEventListener("keydown", handleEscKey);
-  // Click Away makes sense to add upon popup open too
-  popup.addEventListener("mousedown", handleClickAway);
-}
-
-function closePopup(popup) {
-  popup.classList.remove("modal_opened");
-  // Remove listeners
-  popup.removeEventListener("mousedown", handleClickAway);
-  document.removeEventListener("keydown", handleEscKey);
-}
-
-export { handleEscKey, handleClickAway, openPopup, closePopup };

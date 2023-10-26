@@ -1,42 +1,43 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, handleCardFormSubmit) {
+  constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
+
     this._popupForm = this._popupElement.querySelector(".modal__form");
-    this._handleCardFormSubmit = handleCardFormSubmit;
-    this._inputItems = this._popupForm.querySelectorAll(".modal__input");
+    this._handleFormSubmit = handleFormSubmit;
+    this.submitButton = this._popupForm.querySelector(".modal__button");
+    this.submitButtonText = this.submitButton.textContent;
   }
 
   _getInputValues() {
-    const inputsData = {};
-    this._formInputs.forEach((input) => {
-      inputsData[input.name] = input.value;
-    });
-    return inputsData;
+    this._inputList = this._popupElement.querySelectorAll(".modal__input");
+
+    this._formValues = {};
+    this._inputList.forEach(
+      (input) => (this._formValues[input.name] = input.value)
+    );
+
+    return this._formValues;
   }
 
-  _submitForm() {
-    const formInputValues = this._getInputValues();
-    this._handleFormSubmit(formInputValues);
-    // this.close();
-  }
-
-  setLoadingState(isLoading) {
-    this._submitButton.textContent = isLoading
-      ? "...Saving"
-      : this._submitButtonText;
+  renderLoading(isLoading, loadingText = "Saving...") {
+    if (isLoading) {
+      this.submitButton.textContent = loadingText;
+    } else {
+      this.submitButton.textContent = this.submitButtonText;
+    }
   }
 
   setEventListeners() {
-    super.setEventListeners();
-    this._popupForm.addEventListener("submit", () => {
-      this._submitForm();
+    this._popupElement.addEventListener("submit", () => {
+      this._handleFormSubmit(this._getInputValues());
     });
+    super.setEventListeners();
   }
 
   close() {
-    this._popupForm.reset(); // need this line to avoid saving the last input
+    this._popupForm.reset();
     super.close();
   }
 }

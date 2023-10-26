@@ -1,43 +1,80 @@
+import Api from "./Api";
+
 export default class Card {
   constructor(
-    { name, link, _id, isLiked },
-    cardSelector,
-    handleCardClick,
-    handleTrashClick,
-    handleLikeClick
+    {
+      data,
+      userID,
+      isLiked,
+      handleImageClick,
+      handleDeleteCardClick,
+      handleCardLikeClick,
+      handleConfirm,
+    },
+    cardSelector
   ) {
-    this._name = name;
-    this._link = link;
+    this._handleConfirm = handleConfirm;
+    this._name = data.name;
+    this._link = data.link;
+    this._owner = data.owner;
+    this._id = data._id;
+    this._userID = userID;
+    this._isLiked = data.isLiked;
     this._cardSelector = cardSelector;
-    this._handleCardClick = handleCardClick;
-    this._handleTrashClick = handleTrashClick;
-    this._handleLikeClick = handleLikeClick;
-    this._cardId = _id;
-    this._isLiked = isLiked;
-    this._cardElement = document
+    this._handleImageClick = handleImageClick;
+    this._handleDeleteCardClick = handleDeleteCardClick;
+    this._handleCardLikeClick = handleCardLikeClick;
+  }
+
+  getId() {
+    return this._id;
+  }
+
+  getIsLiked() {
+    return this._isLiked;
+  }
+
+  _getTemplate() {
+    const cardElement = document
       .querySelector(this._cardSelector)
-      .cloneNode(true).content.firstElementChild;
+      .content.querySelector(".card")
+      .cloneNode(true);
+
+    return cardElement;
+  }
+
+  getView() {
+    this._cardElement = this._getTemplate();
+    this._cardElement.querySelector(".card__image").src = this._link;
+    this._cardElement.querySelector(
+      ".card__image"
+    ).alt = `Photo of ${this._name}`;
+
+    this._cardCaption = this._cardElement.querySelector(".card__title");
     this._likeButton = this._cardElement.querySelector(".card__like-button");
+    this._cardCaption.textContent = this._name;
+    this._setEventListeners();
+    this._renderLikes();
+    return this._cardElement;
   }
 
   _setEventListeners() {
-    this._likeButton.addEventListener("click", () => this._handleLikeIcon());
-    this._deleteButton.addEventListener("click", () =>
-      this._handleDeleteIcon()
-    );
-    this._cardImage.addEventListener("click", () => {
-      this._handleImageClick(this);
+    //".card__like-button"
+    this._likeButton.addEventListener("click", () => {
+      this._handleCardLikeClick(this);
     });
-  }
 
-  setIsLiked(isLiked) {
-    // set instance variable
-    this._isLiked = isLiked;
-    this._renderLikes();
-  }
+    //".card__delete-button"
+    this._cardElement
+      .querySelector(".card__delete-button")
+      .addEventListener("click", () => this._handleDeleteCardClick(this));
 
-  getLikes() {
-    return this._isLiked;
+    //"#image-popup"
+    this._cardElement
+      .querySelector(".card__image")
+      .addEventListener("click", () =>
+        this._handleImageClick({ link: this._link, text: this._name })
+      );
   }
 
   _renderLikes() {
@@ -48,39 +85,17 @@ export default class Card {
     }
   }
 
-  _handleLikeIcon() {
-    this._likeButton.classList.toggle("card__like-button_active");
+  setLike(isLiked) {
+    this._isLiked = isLiked;
+    this._renderLikes();
   }
 
-  _handleDeleteIcon() {
-    this._element.remove();
-    this._element = null;
+  isLiked() {
+    return this._isLiked;
   }
 
-  _replaceImageData() {
-    this._cardImageEl.src = this._link;
-    this._cardImageEl.alt = `Photo of ${this._name}`;
-    this._cardTitleEl.textContent = this._name;
-  }
-
-  getView() {
-    this._element = this._getTemplate();
-    this._likeButton = this._element.querySelector(".card__like-button");
-    this._deleteButton = this._element.querySelector(".card__delete-button");
-    this._cardImage = this._element.querySelector(".card__image");
-    this._cardTitle = this._element.querySelector(".card__title");
-    this._cardImage.src = this._link;
-    this._cardImage.alt = this._name;
-    this._cardTitle.textContent = this._name;
-    this._setEventListeners();
-    return this._element;
-  }
-
-  _getTemplate() {
-    const cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
-    return cardElement;
+  handleDeleteCard() {
+    this._cardElement.remove();
+    this._cardElement = null;
   }
 }
