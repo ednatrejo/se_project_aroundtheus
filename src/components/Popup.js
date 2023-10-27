@@ -1,25 +1,27 @@
+import { ESC_KEYCODE } from "../utils/Constants.js";
+
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
-    this._popupCloseBtn = this._popupElement.querySelector(".modal__close");
-    this._popupImage = document.querySelector(".preview-image");
+    this._handleEscClose = this._handleEscClose.bind(this);
   }
 
   open() {
     this._popupElement.classList.add("modal_opened");
-    document.addEventListener("keydown", this._handleEscClose);
+    document.addEventListener("keyup", this._handleEscClose);
   }
 
   close() {
+    console.log("test", this._popupElement);
     this._popupElement.classList.remove("modal_opened");
-    document.removeEventListener("keydown", this._handleEscClose);
+    document.removeEventListener("keyup", this._handleEscClose);
   }
 
-  _handleEscClose = (evt) => {
-    if (evt.key === "Escape") {
+  _handleEscClose(evt) {
+    if (evt.which === ESC_KEYCODE) {
       this.close();
     }
-  };
+  }
 
   setEventListeners() {
     this._popupElement.addEventListener("click", (evt) => {

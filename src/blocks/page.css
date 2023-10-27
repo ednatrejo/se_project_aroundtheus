@@ -1,32 +1,25 @@
 .page {
-  font-family: Inter, Arial, Helvetica, sans-serif;
   background-color: black;
   color: white;
+  font-family: "Inter", Arial, sans-serif;
 }
-.page__content {
- display: flex;
- flex-direction: column;
- min-height: 100vh;
- max-width: 880px;
- margin: 0 auto;
-}
+
 .page__section {
   max-width: 880px;
-  max-width: 100%;
+  width: 100%;
   position: relative;
+  margin: 0 auto;
+}
 
-  }
+.page__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  @media screen and (max-width: 1100px) {
-    .page__section {
-      margin: 0 20px;
-      max-width: calc(100% - 40px);
-    }
+@media screen and (max-width: 768px) {
+  .page__content {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-
-  @media screen and (max-width: 480px) {
-    .page__section {
-      max-width: 330px;
-      margin: auto;
-    }
-  }
+}
