@@ -154,6 +154,7 @@
 
 .modal__button:disabled {
   color: #a9a9a900;
+  color: #a9a9a9;
   cursor: default;
 }
 

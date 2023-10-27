@@ -170,7 +170,9 @@ function handleDeleteCardClick(card) {
         confirmDeleteModal.close();
       })
       .catch((err) => {
-        console.error(err);
+        console
+          .error(err)
+          .finally(() => confirmDeleteModal.setLoadingState(false));
       });
   });
 }
